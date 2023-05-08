@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.form.app.springbootform.Models.User;
 
@@ -20,15 +19,8 @@ public class FormController {
 
     // Obtiene los datos del formulario
     @PostMapping("/form")
-    public String procesar(Model model,
-            @RequestParam String username,
-            @RequestParam String password,
-            @RequestParam String email) {
+    public String procesar(User usuario, Model model) {
 
-        User usuario = new User();
-        usuario.setEmail(email);
-        usuario.setUsername(username);
-        usuario.setPassword(password);
 
         model.addAttribute("titulo", "Resiltado form");
         model.addAttribute("usuario", usuario);
