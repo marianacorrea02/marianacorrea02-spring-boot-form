@@ -1,9 +1,13 @@
 package com.springboot.form.app.springbootform.Models;
 
-public class User {
+import jakarta.validation.constraints.NotEmpty;
 
+public class User {
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String password;
+    @NotEmpty
     private String email;
 
     public String getUsername() {
