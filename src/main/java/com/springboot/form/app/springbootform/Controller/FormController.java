@@ -20,9 +20,9 @@ public class FormController {
     // Mostrar Formulario en la pantalla
     @GetMapping("/form")
     public String form(Model model) {
-
+        User usuario = new User();
         model.addAttribute("titulo", "Formulario usuarios");
-   
+        model.addAttribute("user", usuario);
         return "form";
     }
 
