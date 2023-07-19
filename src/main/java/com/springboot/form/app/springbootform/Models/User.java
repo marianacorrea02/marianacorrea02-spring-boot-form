@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotEmpty;
 
 public class User {
 
+    private String id;
+
     @NotEmpty
     private String name;
 
@@ -55,6 +57,14 @@ public class User {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     
