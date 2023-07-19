@@ -8,7 +8,7 @@ public class User {
 
     private String id;
 
-    @NotEmpty(message = "el nombre no puede estar vacio")
+    @NotEmpty
     private String name;
 
     @NotEmpty
