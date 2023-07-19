@@ -21,7 +21,7 @@
         <div>
             <label for="password">Password</label>
             <div>
-                <input type="password" name="password" id="password" th:value="${user.password}">
+                <input type="password" name="password" id="password">
             </div>
             <div th:if="${error != null && error.containsKey('password')}" th:text="${error.password}"></div>
         </div>
