@@ -1,22 +1,26 @@
 package com.springboot.form.app.springbootform.Models;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 public class User {
 
     private String id;
 
-    @NotEmpty
+    @NotEmpty(message = "el nombre no puede estar vacio")
     private String name;
 
     @NotEmpty
     private String lastname;
 
     @NotEmpty
+    @Size(min = 3, max = 8)
     private String username;
     @NotEmpty
     private String password;
     @NotEmpty
+    @Email
     private String email;
 
     public String getUsername() {
