@@ -1,7 +1,14 @@
 package com.springboot.form.app.springbootform.Models;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class User {
@@ -22,6 +29,15 @@ public class User {
     @NotEmpty
     @Email
     private String email;
+
+    @NotNull
+    @Min(5)
+    @Max(100)
+    private Integer cuenta;
+
+    @NotNull
+    //@DateTimeFormat(pattern = "yyyy/MM/dd")
+    private Date fechaDeNacimiento;
 
     public String getUsername() {
         return username;
@@ -71,6 +87,21 @@ public class User {
         this.id = id;
     }
 
-    
+    public Integer getCuenta() {
+        return cuenta;
+    }
 
+    public void setCuenta(Integer cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    public Date getfechaDeNacimiento() {
+        return fechaDeNacimiento;
+    }
+
+    public void setfechaDeNacimiento(Date fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
+    }
+
+    
 }
