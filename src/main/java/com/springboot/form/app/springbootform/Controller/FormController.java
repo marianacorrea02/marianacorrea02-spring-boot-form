@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.boot.autoconfigure.web.ServerProperties.Reactive.Session;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.springboot.form.app.springbootform.Editors.NombreMayusculaEditor;
 import com.springboot.form.app.springbootform.Models.User;
 
 import jakarta.validation.Valid;
@@ -25,6 +27,7 @@ import jakarta.validation.Valid;
 @SessionAttributes("user")
 public class FormController {
 
+    
     // Mostrar Formulario en la pantalla
     @GetMapping("/form")
     public String form(Model model) {
@@ -39,9 +42,10 @@ public class FormController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);//evitar valores ambiguos
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+        binder.registerCustomEditor(String.class, "name", new NombreMayusculaEditor());
     }
     // Obtiene los datos del formulario
     @PostMapping("/form")
