@@ -1,6 +1,9 @@
 package com.springboot.form.app.springbootform.Controller;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -46,6 +50,11 @@ public class FormController {
         dateFormat.setLenient(false);//evitar valores ambiguos
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
         binder.registerCustomEditor(String.class, "name", new NombreMayusculaEditor());
+    }
+
+    @ModelAttribute("paises")
+    public List<String> paises(){
+        return Arrays.asList("Colombia","Argentina","Brazil","Alemania");
     }
     // Obtiene los datos del formulario
     @PostMapping("/form")

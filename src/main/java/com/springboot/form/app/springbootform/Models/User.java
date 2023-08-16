@@ -39,6 +39,9 @@ public class User {
     //@DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date fechaDeNacimiento;
 
+    @NotEmpty
+    private String pais;
+    
     public String getUsername() {
         return username;
     }
@@ -101,6 +104,14 @@ public class User {
 
     public void setfechaDeNacimiento(Date fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
     
