@@ -56,6 +56,15 @@ public class FormController {
     public List<String> paises(){
         return Arrays.asList("Colombia","Argentina","Brazil","Alemania");
     }
+    @ModelAttribute("paisesMap")
+    public Map<String, String> paisesMap(){
+       Map <String, String> paises= new HashMap<String, String>();
+       paises.put("COl", "Colombia");
+       paises.put("ARG", "Argentina");
+       paises.put("BRA", "Brazil");
+       paises.put("ALE", "Alemania");
+       return paises;
+    }
     // Obtiene los datos del formulario
     @PostMapping("/form")
     public String procesar(@Valid User usuario,BindingResult result, Model model, SessionStatus status) {
